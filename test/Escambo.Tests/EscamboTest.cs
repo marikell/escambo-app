@@ -40,14 +40,14 @@ namespace Escambo.Tests
                Id = 2,
                MyItems = new List<Item>(),
                Username = "retired",
-               WantedItems = new List<Item>{new Item{Id = 2, Name = "book"}, new Item{Id = 3, Name = "tool"}}
+               WantedItems = new List<Item>{new Item{Id = 3, Name = "book"}, new Item{Id = 4, Name = "tool"}}
             },
             new User
             {
                 Id = 3,
                 MyItems = new List<Item>(),
                 Username = "housewife",
-                WantedItems = new List<Item>{new Item{Id = 4, Name = "mixer"}}
+                WantedItems = new List<Item>{new Item{Id = 5, Name = "mixer"}}
             },
             new User
             {
@@ -57,7 +57,7 @@ namespace Escambo.Tests
                 WantedItems = new List<Item>()
             }
         };
-
+        
         #endregion
 
         [Fact]
