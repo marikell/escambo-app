@@ -1,13 +1,14 @@
 using System;
+using Escambo.Domain.Interfaces;
 using Escambo.Domain.Models;
 
 namespace Escambo.Application.Services
 {
-    public class ItemService
+    public class ItemService: Service<Item>, IItemService
     {
-        public void ExchangeItem(Item item1, Item item2)
+        public ItemService(IItemRepository repository) : base(repository)
         {
-            throw new Exception("Not implemented!");
+            
         }
     }
 }
