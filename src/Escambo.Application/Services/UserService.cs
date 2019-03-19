@@ -14,12 +14,7 @@ namespace Escambo.Application.Services
 
         }
 
-        public IEnumerable<User> FindPeopleWhoNeedMyItems(User user) => Repository.GetAll().Where(o => !o.Id.Equals(user.Id))
-                                                                                      .Where(p => p.WantedItems
-                                                                                      .Select(k => k.Name)
-                                                                                      .Any(l => user.MyItems
-                                                                                      .Select(c => c.Name)
-                                                                                      .Contains(l))).ToList();
+        public IEnumerable<User> FindPeopleWhoNeedMyItems(User user) => throw new Exception("Not implemented!");
 
     }
 }
