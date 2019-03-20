@@ -22,9 +22,11 @@ namespace Escambo.Tests
             var userWhoNeedsItems = userService.FindPeopleWhoNeedMyItems(UserBaseData.AllUsers[0]).ToList();          
             
             Assert.Equal(expectedUsers.Count, userWhoNeedsItems.Count);
-            Assert.Equal(expectedUsers[0].Id, userWhoNeedsItems[0].Id);
-            Assert.Equal(expectedUsers[1].Id, userWhoNeedsItems[1].Id);          
             
+            for(int i = 0; i < expectedUsers.Count; i++)
+            {
+                Assert.Equal(expectedUsers[i].Id, userWhoNeedsItems[i].Id);
+            }            
         }
     }
 }
