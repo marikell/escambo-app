@@ -1,8 +1,9 @@
-using System.Collections.Generic;
 using Escambo.Domain.Models;
+using System.Collections.Generic;
 
 namespace Escambo.Tests
-{    public static class UserBaseData
+{
+    public static class UserBaseData
     {
         public static List<User> AllUsers => new List<User>{
                 new User
@@ -34,7 +35,7 @@ namespace Escambo.Tests
                     WantedItems = new List<Item>()
                 }};
 
-            public static List<User> ExpectedShouldFindPeopleWhoNeedsMyItemsTest => new List<User>
+        public static List<User> ExpectedShouldFindPeopleWhoNeedsMyItemsTest => new List<User>
             {
                 new User
                 {

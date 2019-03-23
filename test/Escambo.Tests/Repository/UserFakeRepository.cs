@@ -1,7 +1,6 @@
-using System.Collections.Generic;
-using System.Linq;
 using Escambo.Domain.Interfaces;
 using Escambo.Domain.Models;
+using System.Linq;
 
 namespace Escambo.Tests.Repository
 {
