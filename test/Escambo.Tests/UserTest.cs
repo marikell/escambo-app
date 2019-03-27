@@ -24,7 +24,7 @@ namespace Escambo.Tests
             Assert.Equal(expectedUsers.Count, userWhoNeedsItems.Count);
             Assert.Equal(expectedUsers[0].Id, userWhoNeedsItems[0].Id);
             Assert.Equal(expectedUsers[1].Id, userWhoNeedsItems[1].Id);          
-            
         }
+
     }
 }
