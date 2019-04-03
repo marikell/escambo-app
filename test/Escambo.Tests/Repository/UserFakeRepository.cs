@@ -11,5 +11,19 @@ namespace Escambo.Tests.Repository
         {
             return UserBaseData.AllUsers.AsQueryable();
         }
+
+        public User GetUserByItem(int itemId)
+        {
+            foreach (var user in UserBaseData.AllUsers)
+            {
+                foreach (var item in user.MyItems)
+                {
+                    if (item.Id == itemId) { return user; }
+
+                }
+            }
+
+            return null;
+        }
     }
 }

@@ -14,6 +14,12 @@ namespace Escambo.Application.Services
 
         }
 
+        public User GetUserByItem(int id)
+        {
+            return Repository.GetUserByItem(id);
+        }
+
+    
         public IEnumerable<User> FindPeopleWhoNeedMyItems(User user) => Repository.GetAll().Where(o => !o.Id.Equals(user.Id))
                                                                                       .Where(p => p.WantedItems
                                                                                       .Select(k => k.Name)

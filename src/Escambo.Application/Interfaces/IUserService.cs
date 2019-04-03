@@ -5,6 +5,8 @@ namespace Escambo.Application
 {
     public interface IUserService: IService<User>
     {
-        IEnumerable<User> FindPeopleWhoNeedMyItems(User user); 
+        IEnumerable<User> FindPeopleWhoNeedMyItems(User user);
+        User GetUserByItem(int id);
+
     }
 }

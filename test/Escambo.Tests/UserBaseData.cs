@@ -4,11 +4,36 @@ using Escambo.Domain.Models;
 namespace Escambo.Tests
 {    public static class UserBaseData
     {
+        public static List<User> ExpectedItemsAfterExchange => new List<User>
+        {
+              new User
+                {
+                    Id = 1,
+                    MyItems = new List<Item> { new Item { Id = 2, Name = "tool" }, new Item { Id = 6, Name = "book" } },
+                    Username = "student",
+                    WantedItems = new List<Item>()
+                },
+                new User
+                {
+                    Id = 5,
+                    MyItems = new List<Item> { new Item { Id = 1, Name = "mixer" } },
+                    Username = "student",
+                    WantedItems = new List<Item>()
+                },
+        };
+
         public static List<User> AllUsers => new List<User>{
                 new User
                 {
                     Id = 1,
                     MyItems = new List<Item> { new Item { Id = 1, Name = "mixer" }, new Item { Id = 2, Name = "tool" } },
+                    Username = "student",
+                    WantedItems = new List<Item>()
+                },
+                new User
+                {
+                    Id = 5,
+                    MyItems = new List<Item> { new Item { Id = 6, Name = "book" } },
                     Username = "student",
                     WantedItems = new List<Item>()
                 },
