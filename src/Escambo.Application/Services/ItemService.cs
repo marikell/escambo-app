@@ -4,9 +4,8 @@ using Escambo.Domain.Models;
 
 namespace Escambo.Application.Services
 {
-    public class ItemService: GenericService<Item>, IItemService
+    public class ItemService : GenericService<Item>, IItemService
     {
-        private IItemRepository Repository { get { return (IItemRepository)_repository; } }
         public ItemService(IItemRepository repository) : base(repository)
         {
 

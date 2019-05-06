@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Escambo.Domain.Interfaces;
 using Escambo.Domain.Models;
 
@@ -8,10 +5,10 @@ namespace Escambo.Application.Services
 {
     public class UserService: GenericService<User>, IUserService
     {
-        private IUserRepository Repository{get{return (IUserRepository) _repository; }}
-        public UserService(IRepository<User> repository) : base(repository)
+        //private IUserRepository Repository{get{return (IUserRepository) _repository; }}
+        public UserService(IUserRepository repository) : base(repository)
         {
-
+        
         }
 
         //public User GetUserByItem(int id)

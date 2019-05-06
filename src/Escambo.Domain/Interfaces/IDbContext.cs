@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Escambo.Domain.Interfaces
 {
-    public interface IDbContext
+    public interface IDbContextProvider
     {
+        //EscamboContext Context { get; }
     }
 }

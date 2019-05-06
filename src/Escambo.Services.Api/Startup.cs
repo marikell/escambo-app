@@ -48,6 +48,8 @@ namespace Escambo.Services.Api
 
             bootstrap.Register(container);
 
+            //container.Register<EscamboContext>(Lifestyle.Scoped);
+
             services.AddSingleton<IControllerActivator>(new SimpleInjectorControllerActivator(container));
 
             //services.AddDbContext<EscamboContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),null));
@@ -81,8 +83,6 @@ namespace Escambo.Services.Api
 
             app.UseHttpsRedirection();
             app.UseMvc();
-
-            container.Register<IDbContext, EscamboContext>(Lifestyle.Scoped);
 
             container.RegisterMvcControllers(app);
 

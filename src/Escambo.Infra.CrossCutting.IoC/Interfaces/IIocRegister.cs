@@ -2,7 +2,7 @@
 
 namespace Escambo.Infra.CrossCutting.IoC.Interfaces
 {
-    public interface IIoC
+    public interface IIoCRegister
     {
         void Register(Container container);
     }

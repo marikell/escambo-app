@@ -4,23 +4,17 @@ using Escambo.Infra.Data.Mappings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+using System.Data.Common;
 using System.IO;
 
 namespace Escambo.Infra.Data
 {
-    public class EscamboContext : DbContext, IDbContext
+    public class EscamboContext : DbContext, IDbContextProvider
     {
-        private readonly IHostingEnvironment _env;
-
-        public EscamboContext(IHostingEnvironment env, DbContextOptions options) : base(options)
-        {
-            _env = env;
-        }
-
         public EscamboContext(DbContextOptions options) : base(options)
         {
 
-        }
+        }    
 
         public EscamboContext()
         {

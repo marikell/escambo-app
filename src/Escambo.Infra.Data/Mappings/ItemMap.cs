@@ -10,6 +10,8 @@ namespace Escambo.Infra.Data.Mappings
         {
             builder.Property(c => c.Id).HasColumnName("id");
             builder.Property(n => n.Description).HasColumnName("description");
+            builder.Property(p => p.UserId).HasColumnName("user_id");
+            builder.HasOne(p => p.User).WithMany(o => o.Items).HasForeignKey(x => x.UserId);
         }
     }
 }
