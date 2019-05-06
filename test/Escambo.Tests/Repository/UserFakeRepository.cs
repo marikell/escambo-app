@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Escambo.Domain.Interfaces;
@@ -7,23 +8,52 @@ namespace Escambo.Tests.Repository
 {
     public class UserFakeRepository : IUserRepository
     {
-        public IQueryable<User> GetAll()
+        //public IQueryable<User> GetAll()
+        //{
+        //    //return UserBaseData.AllUsers.AsQueryable();
+        //}
+
+        //public User GetUserByItem(int itemId)
+        //{
+        //    foreach (var user in UserBaseData.AllUsers)
+        //    {
+        //        foreach (var item in user.MyItems)
+        //        {
+        //            if (item.Id == itemId) { return user; }
+
+        //        }
+        //    }
+
+        //    return null;
+        //}
+        public void Add(User obj)
         {
-            return UserBaseData.AllUsers.AsQueryable();
+            throw new NotImplementedException();
         }
 
-        public User GetUserByItem(int itemId)
+        public IQueryable<User> GetAll()
         {
-            foreach (var user in UserBaseData.AllUsers)
-            {
-                foreach (var item in user.MyItems)
-                {
-                    if (item.Id == itemId) { return user; }
+            throw new NotImplementedException();
+        }
 
-                }
-            }
+        public User GetById(Guid id)
+        {
+            throw new NotImplementedException();
+        }
 
-            return null;
+        public void Remove(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int SaveChanges()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(User obj)
+        {
+            throw new NotImplementedException();
         }
     }
 }

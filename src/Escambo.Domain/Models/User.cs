@@ -1,11 +1,11 @@
-using System.Collections.Generic;
+﻿using Escambo.Domain.Core.Models;
 
 namespace Escambo.Domain.Models
 {
     public class User: Entity
     {
-        public string Username { get; set; }
-        public ICollection<Item> WantedItems { get; set; }        
-        public ICollection<Item> MyItems {get; set; }        
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public string Name { get; set; }
     }
 }

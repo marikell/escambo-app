@@ -6,7 +6,7 @@ using Escambo.Domain.Models;
 
 namespace Escambo.Application.Services
 {
-    public class UserService: Service<User>, IUserService
+    public class UserService: GenericService<User>, IUserService
     {
         private IUserRepository Repository{get{return (IUserRepository) _repository; }}
         public UserService(IRepository<User> repository) : base(repository)
@@ -14,18 +14,18 @@ namespace Escambo.Application.Services
 
         }
 
-        public User GetUserByItem(int id)
-        {
-            return Repository.GetUserByItem(id);
-        }
+        //public User GetUserByItem(int id)
+        //{
+        //    return Repository.GetUserByItem(id);
+        //}
 
     
-        public IEnumerable<User> FindPeopleWhoNeedMyItems(User user) => Repository.GetAll().Where(o => !o.Id.Equals(user.Id))
-                                                                                      .Where(p => p.WantedItems
-                                                                                      .Select(k => k.Name)
-                                                                                      .Any(l => user.MyItems
-                                                                                      .Select(c => c.Name)
-                                                                                      .Contains(l))).ToList();
+        //public IEnumerable<User> FindPeopleWhoNeedMyItems(User user) => Repository.GetAll().Where(o => !o.Id.Equals(user.Id))
+        //                                                                              .Where(p => p.WantedItems
+        //                                                                              .Select(k => k.Name)
+        //                                                                              .Any(l => user.MyItems
+        //                                                                              .Select(c => c.Name)
+        //                                                                              .Contains(l))).ToList();
 
     }
 }

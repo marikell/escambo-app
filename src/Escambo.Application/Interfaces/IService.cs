@@ -1,9 +1,15 @@
+using Escambo.Domain.Core.Models;
+using System;
 using System.Collections.Generic;
 
 namespace Escambo.Application
 {
-    public interface IService<T> where T:class
+    public interface IGenericService<TEntity> where TEntity:Entity
     {
-        IEnumerable<T> GetAll();
+        IEnumerable<TEntity> GetAll();
+        void Add(TEntity obj);
+        void Remove(Guid id);
+        TEntity GetById(Guid id);
+        void Update(TEntity obj);
     }
 }
