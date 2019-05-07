@@ -6,7 +6,7 @@ namespace Barter.Infra.Data
 {
     public class DbHelper
     {
-        public static BarterContext GetUserContext()
+        public static BarterContext GetBarterContext()
         {
             return new BarterContext(GetOptions());
         }
