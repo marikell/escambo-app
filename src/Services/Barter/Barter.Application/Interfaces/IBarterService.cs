@@ -13,5 +13,6 @@ namespace Barter.Application.Interfaces
         void Update(Domain.Entities.Barter barter);
         IEnumerable<Domain.Entities.Barter> Get(Expression<Func<Domain.Entities.Barter, bool>> predicate);
         Domain.Entities.Barter FirstOrDefault(Expression<Func<Domain.Entities.Barter, bool>> predicate);
+        void FinishBarter(Guid id);
     }
 }

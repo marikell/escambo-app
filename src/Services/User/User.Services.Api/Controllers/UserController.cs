@@ -5,7 +5,7 @@ using User.Application.Interfaces;
 
 namespace Escambo.Services.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/user")]
     [ApiController]
     public class UserController : ControllerBase
     {

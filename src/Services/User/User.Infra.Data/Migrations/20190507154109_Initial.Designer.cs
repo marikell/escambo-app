@@ -10,7 +10,7 @@ using User.Infra.Data;
 namespace User.Infra.Data.Migrations
 {
     [DbContext(typeof(UserContext))]
-    [Migration("20190506220525_Initial")]
+    [Migration("20190507154109_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,12 +27,12 @@ namespace User.Infra.Data.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasMaxLength(100);
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(140);
-
-                    b.Property<string>("Password");
 
                     b.HasKey("Id");
 

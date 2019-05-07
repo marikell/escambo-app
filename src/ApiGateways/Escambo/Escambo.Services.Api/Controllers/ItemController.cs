@@ -5,11 +5,12 @@ using Escambo.Services.Api.Dto;
 using Escambo.Services.Api.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System;
 using System.Net;
 
 namespace Escambo.Services.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/item")]
     [ApiController]
     public class ItemController : GenericController<Item>
     {
@@ -22,7 +23,6 @@ namespace Escambo.Services.Api.Controllers
             try
             {
                 //TODO IMPLEMENTAR UM MANIPULADOR DE ERROS DE MODEL
-                bool IsValid = true;
                 //TODO INSERIR VALIDAÇÃO SE O ITEM ESTÁ DISPONÍVEL
                 Item itemReceived = _service.GetById(model.ItemReceivedId);
 
@@ -38,13 +38,11 @@ namespace Escambo.Services.Api.Controllers
                 if (accountDto == null) { return StatusCode((int)HttpStatusCode.OK, "This user doesn't exist in the database"); }
 
                 if(itemOffered.UserId != accountDto.Id) { return StatusCode((int)HttpStatusCode.OK, "User and Item offered doesn't their id."); }
-               
-                //TODO IMPLEMENTAR REQUEST QUE REALIZA A TROCA DE FATO
 
-                //var response = new RequestHelper($"{ApiHelper.GetBarterApi()}/api/barter")
-                //                               .DoPost(JsonConvert.SerializeObject(model));
+                var responseBarter = new RequestHelper($"{ApiHelper.GetBarterApi()}/api/barter")
+                                               .DoPost(JsonConvert.SerializeObject(model));
 
-                return StatusCode((int)response.StatusCode, response.Message);
+                return StatusCode((int)responseBarter.StatusCode, responseBarter.Message);
 
             }
             catch (WebException ex)

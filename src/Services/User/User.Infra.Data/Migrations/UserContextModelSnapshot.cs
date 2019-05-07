@@ -25,9 +25,11 @@ namespace User.Infra.Data.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasMaxLength(100);
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(140);
 
                     b.HasKey("Id");

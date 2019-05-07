@@ -12,9 +12,8 @@ namespace User.Infra.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Email = table.Column<string>(maxLength: 100, nullable: true),
-                    Password = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(maxLength: 140, nullable: true)
+                    Email = table.Column<string>(maxLength: 100, nullable: false),
+                    Name = table.Column<string>(maxLength: 140, nullable: false)
                 },
                 constraints: table =>
                 {

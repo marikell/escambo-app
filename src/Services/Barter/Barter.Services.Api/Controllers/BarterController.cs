@@ -5,7 +5,7 @@ using System.Net;
 
 namespace Barter.Services.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/barter")]
     [ApiController]
     public class BarterController : ControllerBase
     {
@@ -22,16 +22,33 @@ namespace Barter.Services.Api.Controllers
             {
                 if (model.HasFinished) { throw new Exception("This barter has already ended."); }
 
+                model.Date = DateTime.Now;
+                model.HasFinished = false;
 
-                //User.Domain.Entities.User user = _service.FirstOrDefault(o => o.Email == model.Email);
+                _service.Add(model);
 
-                //if (user == null)
-                //{
-                //    _service.Add(model);
-                //    return StatusCode((int)HttpStatusCode.OK, "User was created!");
-                //}
+                return StatusCode((int)HttpStatusCode.OK, "Barter was created!");
 
-                return StatusCode((int)HttpStatusCode.OK, "");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("finish-barter/{id}")]
+        public ActionResult FinishBarter(Guid id)
+        {
+            try
+            {
+                Domain.Entities.Barter barter = _service.GetById(id);
+
+                if (barter == null) { throw new Exception("This barter doesn't exists."); }
+
+                _service.FinishBarter(id);
+
+                return StatusCode((int)HttpStatusCode.OK, "Barter finished");
 
             }
             catch (Exception ex)
@@ -45,8 +62,7 @@ namespace Barter.Services.Api.Controllers
         {
             try
             {
-                //return _service.FirstOrDefault(o => o.Email == email);
-                return null;
+                return StatusCode((int)HttpStatusCode.OK, _service.GetById(id));
             }
             catch (Exception ex)
             {

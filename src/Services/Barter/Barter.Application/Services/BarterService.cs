@@ -20,6 +20,15 @@ namespace User.Application.Services
             _repository.SaveChanges();
         }
 
+        public void FinishBarter(Guid id)
+        {
+            Barter.Domain.Entities.Barter barter = GetById(id);
+
+            barter.HasFinished = true;
+
+            Update(barter);
+        }
+
         public Barter.Domain.Entities.Barter FirstOrDefault(Expression<Func<Barter.Domain.Entities.Barter, bool>> predicate)
         {
             return _repository.FirstOrDefault(predicate);
