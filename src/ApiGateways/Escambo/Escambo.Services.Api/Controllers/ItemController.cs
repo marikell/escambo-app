@@ -41,8 +41,8 @@ namespace Escambo.Services.Api.Controllers
                
                 //TODO IMPLEMENTAR REQUEST QUE REALIZA A TROCA DE FATO
 
-                var response = new RequestHelper($"{ApiHelper.GetBarterApi()}/api/barter")
-                                               .DoPost(JsonConvert.SerializeObject(model));
+                //var response = new RequestHelper($"{ApiHelper.GetBarterApi()}/api/barter")
+                //                               .DoPost(JsonConvert.SerializeObject(model));
 
                 return StatusCode((int)response.StatusCode, response.Message);
 
