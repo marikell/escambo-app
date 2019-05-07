@@ -27,14 +27,18 @@ namespace Escambo.Infra.Data.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnName("description");
+                        .HasColumnName("description")
+                        .HasMaxLength(150);
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnName("name");
+                        .HasColumnName("name")
+                        .HasMaxLength(100);
 
                     b.Property<int>("Type")
-                        .HasColumnName("type");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("type")
+                        .HasDefaultValue(0);
 
                     b.Property<Guid>("UserId")
                         .HasColumnName("user_id");

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Escambo.Infra.Data.Migrations
 {
     [DbContext(typeof(EscamboContext))]
-    [Migration("20190506055204_Initial")]
+    [Migration("20190507032330_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,29 +28,26 @@ namespace Escambo.Infra.Data.Migrations
                         .HasColumnName("id");
 
                     b.Property<string>("Description")
-                        .HasColumnName("description");
+                        .IsRequired()
+                        .HasColumnName("description")
+                        .HasMaxLength(150);
 
-                    b.Property<Guid>("UserId");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnName("name")
+                        .HasMaxLength(100);
+
+                    b.Property<int>("Type")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("type")
+                        .HasDefaultValue(0);
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnName("user_id");
 
                     b.HasKey("Id");
 
                     b.ToTable("Items");
-                });
-
-            modelBuilder.Entity("Escambo.Domain.Models.User", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Email");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("Password");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

@@ -12,26 +12,14 @@ namespace Escambo.Infra.Data.Migrations
                 columns: table => new
                 {
                     id = table.Column<Guid>(nullable: false),
-                    UserId = table.Column<Guid>(nullable: false),
-                    description = table.Column<string>(nullable: true)
+                    user_id = table.Column<Guid>(nullable: false),
+                    name = table.Column<string>(maxLength: 100, nullable: false),
+                    description = table.Column<string>(maxLength: 150, nullable: false),
+                    type = table.Column<int>(nullable: false, defaultValue: 0)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Items", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Users",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(nullable: false),
-                    Email = table.Column<string>(nullable: true),
-                    Password = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
         }
 
@@ -39,9 +27,6 @@ namespace Escambo.Infra.Data.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Items");
-
-            migrationBuilder.DropTable(
-                name: "Users");
         }
     }
 }

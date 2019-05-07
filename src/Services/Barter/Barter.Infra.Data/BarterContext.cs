@@ -1,19 +1,19 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Barter.Infra.Data.Mappings;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.IO;
-using User.Infra.Data.Mappings;
 
-namespace User.Infra.Data
+namespace Barter.Infra.Data
 {
-    public class UserContext : DbContext
+    public class BarterContext : DbContext
     {
-        public DbSet<Domain.Entities.User> Users { get; set; }
+        public DbSet<Domain.Entities.Barter> Barters { get; set; }
 
-        public UserContext()
+        public BarterContext()
         {
 
         }
-        public UserContext(DbContextOptions options) : base(options)
+        public BarterContext(DbContextOptions options) : base(options)
         {
 
         }
@@ -21,7 +21,7 @@ namespace User.Infra.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            modelBuilder.ApplyConfiguration(new UserMap());
+            modelBuilder.ApplyConfiguration(new BarterMap());
 
             base.OnModelCreating(modelBuilder);
         }
@@ -33,7 +33,7 @@ namespace User.Infra.Data
                                 .AddJsonFile("appsettings.json")
                                 .Build();
 
-            optionsBuilder.UseSqlServer(configuration.GetConnectionString("UserConnection"));
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("BarterConnection"));
         }
     }
 }

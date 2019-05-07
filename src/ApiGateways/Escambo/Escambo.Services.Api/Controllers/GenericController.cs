@@ -7,7 +7,7 @@ namespace Escambo.Services.Api.Controllers
 {
     public class GenericController<TEntity>:ControllerBase where TEntity:Entity
     {
-        private IGenericService<TEntity> _service;
+        protected IGenericService<TEntity> _service;
 
         public GenericController(IGenericService<TEntity> service)
         {

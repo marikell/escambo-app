@@ -30,8 +30,6 @@ namespace Escambo.Services.Api.Controllers
 
                 return StatusCode((int)HttpStatusCode.OK, "User already exists in db");
 
-
-
             }
             catch (Exception ex)
             {
@@ -39,44 +37,46 @@ namespace Escambo.Services.Api.Controllers
             }
         }
 
-        [HttpGet("{id}")]
-        public ActionResult<User.Domain.Entities.User> Get(Guid id)
+        [HttpGet("{email}")]
+        public ActionResult<User.Domain.Entities.User> Get(string email)
         {
             try
             {
-                return _service.GetById(id);
+                return _service.FirstOrDefault(o => o.Email == email);
             }
             catch (Exception ex)
             {
-                throw ex;
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }
         }
 
         [HttpPut("{id}")]
-        public void Put([FromBody] User.Domain.Entities.User model)
+        public ActionResult Put([FromBody] User.Domain.Entities.User model)
         {
             try
             {
                 _service.Update(model);
+
+                return StatusCode((int)HttpStatusCode.OK, "User updated.");
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }
         }
 
         [HttpDelete("{id}")]
-        public void Delete(Guid id)
+        public ActionResult Delete(Guid id)
         {
             try
             {
                 _service.Remove(id);
+
+                return StatusCode((int)HttpStatusCode.OK, "User deleted.");
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }
         }
     }

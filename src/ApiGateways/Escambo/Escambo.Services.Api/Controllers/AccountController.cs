@@ -21,30 +21,12 @@ namespace Escambo.Services.Api.Controllers
         {
             try
             {
-                string webAddr = $"{ApiHelper.GetUserApi()}/api/user";
+                var response = new RequestHelper($"{ApiHelper.GetUserApi()}/api/user")
+                                                .DoPost(JsonConvert.SerializeObject(model));
 
-                var httpWebRequest = (HttpWebRequest)WebRequest.Create(webAddr);
-                httpWebRequest.ContentType = "application/json; charset=utf-8";
-                httpWebRequest.Method = "POST";
-
-                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-                {
-                    string json = JsonConvert.SerializeObject(model);
-
-                    streamWriter.Write(json);
-                    streamWriter.Flush();
-                }
-                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-
-                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-                {
-                    var responseText = streamReader.ReadToEnd();
-
-                    return StatusCode((int)httpResponse.StatusCode, responseText);
-                }
-
+                return StatusCode((int)response.StatusCode, response.Message);
             }
-            catch (HttpRequestException ex)
+            catch (WebException ex)
             {
                 return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }

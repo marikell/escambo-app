@@ -30,8 +30,6 @@ namespace User.Infra.Data.Migrations
                     b.Property<string>("Name")
                         .HasMaxLength(140);
 
-                    b.Property<string>("Password");
-
                     b.HasKey("Id");
 
                     b.ToTable("Users");
