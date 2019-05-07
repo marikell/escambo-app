@@ -9,9 +9,10 @@ namespace Escambo.Infra.Data.Mappings
         public void Configure(EntityTypeBuilder<Item> builder)
         {
             builder.Property(c => c.Id).HasColumnName("id");
-            builder.Property(n => n.Description).HasColumnName("description");
+            builder.Property(n => n.Description).HasColumnName("description").IsRequired();
             builder.Property(p => p.UserId).HasColumnName("user_id");
-            //builder.HasOne(p => p.User).WithMany(o => o.Items).HasForeignKey(x => x.UserId);
+            builder.Property(p => p.Name).HasColumnName("name").IsRequired();
+            builder.Property(p => p.Type).HasColumnName("type");
         }
     }
 }

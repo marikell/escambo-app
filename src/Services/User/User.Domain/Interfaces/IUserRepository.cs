@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace User.Domain.Interfaces
 {
@@ -11,6 +12,8 @@ namespace User.Domain.Interfaces
         void Remove(Guid id);
         Entities.User GetById(Guid id);
         void Update(Entities.User obj);
+        IQueryable<Domain.Entities.User> Get(Expression<Func<Domain.Entities.User, bool>> predicate);        
+        Domain.Entities.User FirstOrDefault(Expression<Func<Domain.Entities.User, bool>> predicate);  
         int SaveChanges();
     }
 }

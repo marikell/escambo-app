@@ -1,9 +1,6 @@
 ﻿using Escambo.Application;
 using Escambo.Domain.Models;
-using Escambo.Services.Api.Dto;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Linq;
 
 namespace Escambo.Services.Api.Controllers
 {

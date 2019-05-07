@@ -4,14 +4,16 @@ using Escambo.Infra.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Escambo.Infra.Data.Migrations
 {
     [DbContext(typeof(EscamboContext))]
-    partial class EscamboContextModelSnapshot : ModelSnapshot
+    [Migration("20190506225533_Insert_Name_Column_Tb_Item")]
+    partial class Insert_Name_Column_Tb_Item
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,15 +28,9 @@ namespace Escambo.Infra.Data.Migrations
                         .HasColumnName("id");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnName("description");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnName("name");
-
-                    b.Property<int>("Type")
-                        .HasColumnName("type");
+                    b.Property<string>("Name");
 
                     b.Property<Guid>("UserId")
                         .HasColumnName("user_id");

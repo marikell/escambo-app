@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
+using System.Linq.Expressions;
+using User.Domain.Entities;
 using User.Domain.Interfaces;
 
 namespace User.Infra.Data.Repository
@@ -39,9 +41,18 @@ namespace User.Infra.Data.Repository
             return DbContext.SaveChanges();
         }
 
+        public IQueryable<Domain.Entities.User> Get(Expression<Func<Domain.Entities.User,bool>> predicate)
+        {
+            return DbSet.Where(predicate);
+
+        }
         public void Update(Domain.Entities.User obj)
         {
             DbSet.Update(obj);
+        }
+        public Domain.Entities.User FirstOrDefault(Expression<Func<Domain.Entities.User, bool>> predicate)
+        {
+            return Get(predicate).FirstOrDefault();
         }
     }
 }
