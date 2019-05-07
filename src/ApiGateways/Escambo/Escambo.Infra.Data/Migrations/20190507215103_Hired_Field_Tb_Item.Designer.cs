@@ -4,14 +4,16 @@ using Escambo.Infra.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Escambo.Infra.Data.Migrations
 {
     [DbContext(typeof(EscamboContext))]
-    partial class EscamboContextModelSnapshot : ModelSnapshot
+    [Migration("20190507215103_Hired_Field_Tb_Item")]
+    partial class Hired_Field_Tb_Item
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

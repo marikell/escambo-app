@@ -1,5 +1,5 @@
-﻿using Escambo.Domain.Interfaces;
-using Escambo.Domain.Models;
+﻿using Escambo.Domain.Entities;
+using Escambo.Domain.Interfaces;
 using Escambo.Infra.Data.Models;
 
 namespace Escambo.Infra.Data.Repository

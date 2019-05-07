@@ -1,6 +1,6 @@
 using System;
+using Escambo.Domain.Entities;
 using Escambo.Domain.Interfaces;
-using Escambo.Domain.Models;
 
 namespace Escambo.Application.Services
 {

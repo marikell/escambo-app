@@ -1,4 +1,4 @@
-using Escambo.Domain.Models;
+using Escambo.Domain.Entities;
 
 namespace Escambo.Application
 {

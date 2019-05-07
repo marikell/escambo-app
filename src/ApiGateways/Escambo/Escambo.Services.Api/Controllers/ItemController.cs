@@ -1,6 +1,6 @@
 ﻿using Escambo.Application;
+using Escambo.Domain.Entities;
 using Escambo.Domain.Enums;
-using Escambo.Domain.Models;
 using Escambo.Services.Api.Dto;
 using Escambo.Services.Api.Helpers;
 using Microsoft.AspNetCore.Mvc;
@@ -69,7 +69,8 @@ namespace Escambo.Services.Api.Controllers
                     Description = model.Description,
                     UserId = accountDto.Id,
                     Name = model.Name,
-                    Type = model.Type
+                    Type = model.Type,
+                    Hired = false
                 };
 
                 _service.Add(item);
