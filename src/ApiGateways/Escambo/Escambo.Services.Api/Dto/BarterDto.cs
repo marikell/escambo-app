@@ -1,13 +1,14 @@
-﻿using Barter.Domain.Core.Models;
-using System;
+﻿using System;
 
-namespace Barter.Domain.Entities
+namespace Escambo.Services.Api.Dto
 {
-    public class Barter : Entity
+    public class BarterDto
     {
         public Guid ItemOfferedId { get; set; }
         public Guid ItemReceivedId { get; set; }
         public DateTime Date { get; set; }
         public bool HasFinished { get; set; }
+
+        public string UserEmailOffering { get; set; }
     }
 }

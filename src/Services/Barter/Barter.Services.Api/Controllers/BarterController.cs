@@ -20,6 +20,9 @@ namespace Barter.Services.Api.Controllers
         {
             try
             {
+                if (model.HasFinished) { throw new Exception("This barter has already ended."); }
+
+
                 //User.Domain.Entities.User user = _service.FirstOrDefault(o => o.Email == model.Email);
 
                 //if (user == null)
